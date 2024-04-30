@@ -34,6 +34,7 @@ OK here means, that your programm`s output had any line containing "die" as it w
 
 ' 31 600 200 200 20' **KO** Philosophers expected to die
 KO means that your program`s output did not have any line containing "die" word, but it was expected that at least one philosopher would die.
+
 ![image](https://github.com/upwelling-twll/test_philosophers/assets/92473270/42111e49-e0b0-4889-a30c-7865f974e064)
 
 
