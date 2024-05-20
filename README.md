@@ -1,11 +1,11 @@
 
 # Where to Clone the Tester Repository
 
-Clone the tester's repository into your project directory. In other words, the "test" folder should be in the same directory as your ./philosopher program.
+Clone the tester's repository into your project directory. In other words, the "tester_philosopher" folder should be in the same directory as your ./philosopher program.
     
     |
     |- /philosopher (your project directory) 
-        |- /tester (this tester repo) 
+        |- /tester_philosopher (this tester repo) 
         |- ./philosopher (your executable)
 
 
