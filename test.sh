@@ -13,7 +13,7 @@ process_line_full() {
     line_raw="$1"
     file="$2"
     full_testing="$3"
-
+    runs="$4"
     # If you want to change the number of turns philosophers should eat, change the "turns" variable
     turns=20
     line="${line_raw} $turns"
@@ -29,7 +29,7 @@ process_line_full() {
 
     ko_detected=0
 
-    for ((i=0; i<4; i++)); do
+    for ((i=0; i<runs; i++)); do
         # Call philosopher with the arguments
         output=$(././philosopher "${args[@]}")
 
@@ -45,17 +45,17 @@ process_line_full() {
 
     # echo "final $ko_detected"
     
-    if (( ko_detected > 2 )); then
+    if (( ko_detected > runs/2 )); then
         if [[ $file == *"test_input_not_die.txt"* ]]; then
-            echo -e "'$line' ${RED}KO${NC} Philosophers must not die: $ko_detected/4 died"
+            echo -e "'$line' ${RED}KO${NC} Philosophers must not die: $ko_detected/$runs died"
         elif [[ $file == *"test_input_die.txt"* ]]; then
-            echo -e "'$line' ${RED}KO${NC} Philosophers expected to die: $ko_detected/4 did not die"
+            echo -e "'$line' ${RED}KO${NC} Philosophers expected to die: $ko_detected/$runs did not die"
         fi
     else
         if [[ $file == *"test_input_not_die.txt"* ]]; then
-            echo -e "'$line' ${LIGHT_GREEN}OK${NC}: $ko_detected/4 died"
+            echo -e "'$line' ${LIGHT_GREEN}OK${NC}: $ko_detected/$runs died"
         elif [[ $file == *"test_input_die.txt"* ]]; then
-            echo -e "'$line' ${LIGHT_GREEN}OK${NC}: $ko_detected/4 survived"
+            echo -e "'$line' ${LIGHT_GREEN}OK${NC}: $ko_detected/$runs survived"
         fi
     fi
 }
@@ -108,14 +108,19 @@ process_line_short() {
 
 # Main script execution
 full_testing=0
-if [[ "$1" == "-f" ]]; then
+runs=4
+
+# Check if the first argument is "-f" and if the second argument exists and is a number
+if [[ "$1" == "-f" && "$2" =~ ^[0-9]+$ ]]; then
     full_testing=1
-    echo -e "       ${PINK}Each test case will be sent 4 times${NC}"
+    runs="$2"  # Set the number of runs from the second argument
+    echo -e "       ${PINK}Each test case will be sent $runs times${NC}"
+    shift 2  # Shift the arguments to remove "-f" and the number from the argument list
     for file in ../tester_philosophers/test_input/*; do
         if [ -f "$file" ]; then  # Check if it's a regular file
             echo "Processing file: $file"
             while IFS= read -r line; do
-                process_line_full "$line" "$file" "$full_testing"
+                process_line_full "$line" "$file" "$full_testing" "$runs"  # Pass the number of runs to the function
             done < "$file"
         fi
     done
