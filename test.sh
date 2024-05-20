@@ -31,7 +31,7 @@ process_line_full() {
 
     for ((i=0; i<4; i++)); do
         # Call philosopher with the arguments
-        output=$(.././philosopher "${args[@]}")
+        output=$(././philosopher "${args[@]}")
 
         # Check conditions based on the output and the filename
         if grep -q "died" <<< "$output" && [[ $file == *"test_input_not_die.txt"* ]]; then
@@ -82,7 +82,7 @@ process_line_short() {
     ko_detected=0
 
     # Call philosopher with the arguments
-    output=$(.././philosopher "${args[@]}")
+    output=$(././philosopher "${args[@]}")
 
     # Check conditions based on the output and the filename
     if grep -q "died" <<< "$output" && [[ $file == *"test_input_not_die.txt"* ]]; then
@@ -111,7 +111,7 @@ full_testing=0
 if [[ "$1" == "-f" ]]; then
     full_testing=1
     echo -e "       ${PINK}Each test case will be sent 4 times${NC}"
-    for file in ../test/test_input/*; do
+    for file in ../tester_philosophers/test_input/*; do
         if [ -f "$file" ]; then  # Check if it's a regular file
             echo "Processing file: $file"
             while IFS= read -r line; do
@@ -121,7 +121,7 @@ if [[ "$1" == "-f" ]]; then
     done
 else
     echo -e "       ${LIGHT_YELLOW}Each test case will be sent 1 time${NC}"
-    for file in ../test/test_input/*; do
+    for file in ../tester_philosophers/test_input/*; do
         if [ -f "$file" ]; then  # Check if it's a regular file
             echo "Processing file: $file"
             while IFS= read -r line; do
