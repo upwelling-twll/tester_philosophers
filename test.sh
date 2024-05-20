@@ -1,4 +1,6 @@
 #!/bin/bash
+TURNS_TO_EAT=20
+
 YELLOW='\033[0;33m'
 LIGHT_YELLOW='\033[1;33m'
 DARK_YELLOW='\033[0;33m'
@@ -15,7 +17,7 @@ process_line_full() {
     full_testing="$3"
     runs="$4"
     # If you want to change the number of turns philosophers should eat, change the "turns" variable
-    turns=20
+    turns=${TURNS_TO_EAT}
     line="${line_raw} $turns"
 
     # Split the line into an array of arguments
@@ -67,7 +69,7 @@ process_line_short() {
     full_testing="$3"
 
     # If you want to change the number of turns philosophers should eat, change the "turns" variable
-    turns=20
+    turns=${TURNS_TO_EAT}
     line="${line_raw} $turns"
 
     # Split the line into an array of arguments
@@ -88,7 +90,7 @@ process_line_short() {
     if grep -q "died" <<< "$output" && [[ $file == *"test_input_not_die.txt"* ]]; then
         echo "$output" > "./test_logs/not_die/${line}.txt"
         ko_detected=1
-    elif ! grep -q "died" <<< "$output" && [[ $file == *"test_input_die.txt"* ]]; then
+elif ! grep -q "died" <<< "$output" && [[ $file == *"test_input_die.txt"* ]]; then
         echo "$output" > "./test_logs/die/${line}.txt"
         ko_detected=1
     fi
@@ -135,3 +137,4 @@ else
         fi
     done
 fi
+    
