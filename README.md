@@ -14,10 +14,10 @@ Clone the tester's repository into your project directory. In other words, the "
 In the tester directory run "bash test.sh" script. The program does not need any arguments.
 
 # How to Specify Tester Parameters
-**Full test option** means running each test case 6 times and ensuring that at least 50% of the tries end as expected.
-Use flag **-f** to run full test:
+**Full test option** means running each test case n times and ensuring that at least 50% of the tries end as expected.
+Use flag **-f n** to run full test (n = number of runs, can be any value):
       
-      bash test.sh -f
+      bash test.sh -f 6
 
 **Meals / turns to eat** You can change the number of turns (turns_to_eat) each philosopher will eat. To change this parameter, open the test.sh script: navigate to cd test/test.sh and change the value of the turns variable.
 ![image](https://github.com/upwelling-twll/test_philosophers/assets/92473270/2f1867f3-f972-4ab4-90d7-8041e6bbea34)
