@@ -8,7 +8,7 @@ LIGHT_GREEN='\033[1;32m'
 RED='\033[0;31m'  # ANSI escape code for red color
 NC='\033[0m'      # ANSI escape code for reset (to default color)
 
-# Define the function to process each line
+# Define the function to process each line 4 times
 process_line_full() {
     line_raw="$1"
     file="$2"
@@ -60,7 +60,7 @@ process_line_full() {
     fi
 }
 
-# Define the function to process each line
+# Define the function to process each line 1 time
 process_line_short() {
     line_raw="$1"
     file="$2"
