@@ -31,7 +31,7 @@ process_line_full() {
 
     for ((i=0; i<runs; i++)); do
         # Call philosopher with the arguments
-        output=$(././philosopher "${args[@]}")
+        output=$(.././philosopher "${args[@]}")
 
         # Check conditions based on the output and the filename
         if grep -q "died" <<< "$output" && [[ $file == *"test_input_not_die.txt"* ]]; then
@@ -82,7 +82,7 @@ process_line_short() {
     ko_detected=0
 
     # Call philosopher with the arguments
-    output=$(././philosopher "${args[@]}")
+    output=$(.././philosopher "${args[@]}")
 
     # Check conditions based on the output and the filename
     if grep -q "died" <<< "$output" && [[ $file == *"test_input_not_die.txt"* ]]; then
