@@ -1,4 +1,4 @@
-
+![image](https://github.com/upwelling-twll/tester_philosophers/assets/92473270/2a34ad11-4b1c-490b-b869-53dc29cc914f)
 # Where to Clone the Tester Repository
 
 Clone the tester's repository into your project directory. In other words, the "tester_philosopher" folder should be in the same directory as your ./philosopher program.
@@ -49,7 +49,18 @@ Example:
     ' 31 600 200 200 20' KO Philosophers expected to die
 
 KO means that your program's output did not contain any line with "die", but it was expected that at least one philosopher would die.
+![image](https://github.com/upwelling-twll/tester_philosophers/assets/92473270/7a77583b-cfe9-4ba7-9bfe-382b088d5987)
 
-![image](https://github.com/upwelling-twll/test_philosophers/assets/92473270/42111e49-e0b0-4889-a30c-7865f974e064)
+
+Full test:
+
+     "bash test.sh -f 6" 
+while turns_to_eat=20, gives next output:
+
+![image](https://github.com/upwelling-twll/tester_philosophers/assets/92473270/24ce304b-9a07-4939-a309-fd0caaf932bd)
+
+**' 4 310 200 100 20' OK: 0/6 survived** - means that for this test case philosopher uxpected to dye. The script executed philosopher program 6 times with '4 310 200 100 20' input and each time output contained "die" string.
+
+**' 31 600 200 200 20' KO Philosophers expected to die: 6/6 did not die** - means that for this test case philosopher uxpected to dye. The script executed philosopher program 6 times with ' 31 600 200 200 20' input and each time output did not containe "die" string, that means your philosophers survived when they shouldn`t have.
 
 
