@@ -46,7 +46,7 @@ Example:
 
     ../test/test_input/test_input_die.txt ' 4 310 200 100 20' OK
 
-![image](https://github.com/upwelling-twll/tester_philosophers/assets/92473270/7a77583b-cfe9-4ba7-9bfe-382b088d5987)
+![image](https://github.com/upwelling-twll/tester_philosophers/assets/92473270/dd1f53f0-8dae-4294-940e-74def2bb34c8)
 
  OK means that your program's output contained a line with "die". Since it was expected that at least one philosopher should die with these arguments, the output is OK.
 
