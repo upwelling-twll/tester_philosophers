@@ -38,7 +38,7 @@ Follow this logic:
     If your test case corresponds to the death of one of the philosophers, add this case to the /test_input_die.txt file.
     If your test case provides enough time for philosophers to survive, so none must die, add this case to the /test_input_not_die.txt file.
 
-# Understanding the Output
+# Reading the Output
 
 Example:
 
