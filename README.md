@@ -35,8 +35,10 @@ You can add new combinations of arguments to any of the input files. Open the /t
 
 Follow this logic:
 
-    If your test case corresponds to the death of one of the philosophers, add this case to the /test_input_die.txt file.
-    If your test case provides enough time for philosophers to survive, so none must die, add this case to the /test_input_not_die.txt file.
+    If your test case corresponds to the death of one of the philosophers,
+    add this case to the /test_input_die.txt file.
+    If your test case provides enough time for philosophers to survive, so none must die,
+    add this case to the /test_input_not_die.txt file.
 
 # Reading the Output
 
