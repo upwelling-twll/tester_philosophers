@@ -1,1 +1,5 @@
 ./philosopher
+test_logs/die/*.txt
+!example.txt
+test_logs/not_die/*.txt
+!example2.txt

@@ -1,6 +1,4 @@
 #!/bin/bash
-TURNS_TO_EAT=20
-
 YELLOW='\033[0;33m'
 LIGHT_YELLOW='\033[1;33m'
 DARK_YELLOW='\033[0;33m'
@@ -9,7 +7,9 @@ GREEN='\033[0;32m'
 LIGHT_GREEN='\033[1;32m'
 RED='\033[0;31m'  # ANSI escape code for red color
 NC='\033[0m'      # ANSI escape code for reset (to default color)
+TURNS=30
 
+PHILOS_PROG=../git_repo/philosopher #specify the path to your program
 # Define the function to process each line 4 times
 process_line_full() {
     line_raw="$1"
@@ -17,11 +17,14 @@ process_line_full() {
     full_testing="$3"
     runs="$4"
     # If you want to change the number of turns philosophers should eat, change the "turns" variable
-    turns=${TURNS_TO_EAT}
+    turns=$TURNS
     line="${line_raw} $turns"
+    timestamp="$(date +"%Y-%m-%d %H:%M")"
 
     # Split the line into an array of arguments
     read -r -a args <<< "$line"
+
+    line="$timestamp$line"
 
     # Check if there are less than 3 arguments
     if (( ${#args[@]} < 3 )); then
@@ -33,7 +36,7 @@ process_line_full() {
 
     for ((i=0; i<runs; i++)); do
         # Call philosopher with the arguments
-        output=$(.././philosopher "${args[@]}")
+        output=$(${PHILOS_PROG} "${args[@]}")
 
         # Check conditions based on the output and the filename
         if grep -q "died" <<< "$output" && [[ $file == *"test_input_not_die.txt"* ]]; then
@@ -43,6 +46,7 @@ process_line_full() {
             echo "$output" > "./test_logs/die/${line}.txt"
             ko_detected=$((ko_detected+1))
         fi
+        sleep 2
     done
 
     # echo "final $ko_detected"
@@ -69,7 +73,7 @@ process_line_short() {
     full_testing="$3"
 
     # If you want to change the number of turns philosophers should eat, change the "turns" variable
-    turns=${TURNS_TO_EAT}
+    turns=20
     line="${line_raw} $turns"
 
     # Split the line into an array of arguments
@@ -84,7 +88,7 @@ process_line_short() {
     ko_detected=0
 
     # Call philosopher with the arguments
-    output=$(.././philosopher "${args[@]}")
+    output=$(${PHILOS_PROG} "${args[@]}")
 
     # Check conditions based on the output and the filename
     if grep -q "died" <<< "$output" && [[ $file == *"test_input_not_die.txt"* ]]; then
