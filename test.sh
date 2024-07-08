@@ -7,9 +7,9 @@ GREEN='\033[0;32m'
 LIGHT_GREEN='\033[1;32m'
 RED='\033[0;31m'  # ANSI escape code for red color
 NC='\033[0m'      # ANSI escape code for reset (to default color)
-TURNS=30
+TURNS=50
 
-PHILOS_PROG=../git_repo/philosopher #specify the path to your program
+PHILOS_PROG=../july8_repo/philosopher #specify the path to your program
 # Define the function to process each line 4 times
 process_line_full() {
     line_raw="$1"
