@@ -1,7 +1,7 @@
 ![image](https://github.com/upwelling-twll/tester_philosophers/assets/92473270/2a34ad11-4b1c-490b-b869-53dc29cc914f)
 # Where to Clone the Tester Repository
 
-Clone the tester's repository into your project directory. In other words, the "tester_philosopher" folder should be in the same directory as your ./philosopher program.
+Clone the tester's repository into your project directory. In other words, the "tester_philosopher" folder should be in the same directory as your ./philosopher program. Or you can clone it wherever you want, but don`t forget to change the path (PHILOS_PROG) to your program in test.sh file.
     
     |
     |- /philosopher (your project directory) 
